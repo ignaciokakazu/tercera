@@ -11,6 +11,9 @@
     "dev": "tsc && nodemon",
     "transcuto": "npm run transpile && npm run start"
   },
+  "engines": {
+    "node": ">=0.12"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
