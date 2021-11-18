@@ -4,6 +4,7 @@ import {ProductosFactoryDAO} from '../models/productos.factory';
 import {TipoPersistencia} from '../models/productos.factory';
 import {CarritoFactoryDAO} from '../models/carrito.factory';
 import {ProductoInterface} from '../models/productos.interfaces';
+import Mongoose from 'mongoose';
 
 import {NewCarritoInterface, CarritoInterface} from '../models/carrito.interfaces';
 /**

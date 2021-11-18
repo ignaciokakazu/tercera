@@ -52,7 +52,7 @@ export class LoginAtlasDAO  {
     constructor() {
         /* hacer según un argumento de entrada */
         this.srv = process.env.MONGO_ATLAS_SRV || '';
-        Mongoose.connect(this.srv)
+        Mongoose.createConnection(this.srv)
         this.mongoModel = Mongoose.model<UserI>('user', usersSchema);
     }
 

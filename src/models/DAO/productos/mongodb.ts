@@ -30,7 +30,7 @@ export class ProductosMongoDAO {//implements ProductBaseClass {
     } else {
       this.srv = `mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`;
     }
-    mongoose.connect(this.srv);
+    mongoose.createConnection(this.srv);
     this.productos = mongoose.model<ProductoInterface>('producto', productsSchema);
   }
 

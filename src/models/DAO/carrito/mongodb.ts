@@ -32,7 +32,7 @@ export class CarritoMongoDAO {//implements ProductBaseClass {
       this.srv = `mongodb://localhost:27017/${process.env.MONGO_LOCAL_DBNAME}`;
     else
       this.srv = `mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`;
-    mongoose.connect(this.srv);
+    mongoose.createConnection(this.srv);
     this.carrito = mongoose.model<CarritoInterface>('carrito', carritoSchema);
   }
 
