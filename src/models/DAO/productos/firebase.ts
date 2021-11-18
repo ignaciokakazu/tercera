@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin';
 import { NewProductoInterface } from '../../productos.interfaces';
-import config from '../../../config/config';
+
 
 export class ProductosFirebaseDAO {//implements ProductBaseClass {
   db: any;
