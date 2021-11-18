@@ -25,10 +25,11 @@ export class ProductosMongoDAO {//implements ProductBaseClass {
   private productos;
 
   constructor(local: boolean = false) {
-    if (local)
+    if (local){
       this.srv = `mongodb://localhost:27017/${process.env.MONGO_LOCAL_DBNAME}`;
-    else
+    } else {
       this.srv = `mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`;
+    }
     mongoose.connect(this.srv);
     this.productos = mongoose.model<ProductoInterface>('producto', productsSchema);
   }
