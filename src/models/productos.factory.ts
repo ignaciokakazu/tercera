@@ -22,9 +22,9 @@ export class ProductosFactoryDAO {
                 console.log("Soy Factory y es el FS");
                 return new ProductosFSDAO();
             
-            case TipoPersistencia.sqlite:
-                console.log("Soy el factory y es sqlite");
-                return new ProductosSQLiteDAO();
+            // case TipoPersistencia.sqlite:
+            //     console.log("Soy el factory y es sqlite");
+            //     return new ProductosSQLiteDAO();
             
             case TipoPersistencia.memory:
                 console.log("Soy el factory y es memory");
