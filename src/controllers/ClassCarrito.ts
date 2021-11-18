@@ -1,5 +1,6 @@
 import moment from 'moment';
 import {Request, Response} from 'express';
+import {apiCarrito} from '../apis/api';
 import {api} from '../apis/api';
 import {CarritoArray, CarritoInterface, NewCarritoInterface} from '../models/carrito.interfaces';
 import {UserI} from '../models/login.interfaces';
@@ -21,7 +22,7 @@ class ClassCarrito {
     async getCarritoById(req:Request, res:Response) {//id:number) {
         try {
             const id: string= req.params.id;
-            const carrito = await api.getCarritoById(id);
+            const carrito = await apiCarrito.getCarritoById(id);
             
             res.json(carrito);
             
@@ -33,7 +34,7 @@ class ClassCarrito {
 
     async getCarritoAll(req:Request, res:Response) {
         try {
-            const carritoAll = await api.getCarritoAll();
+            const carritoAll = await apiCarrito.getCarritoAll();
             res.json(carritoAll);
         } catch (error:any) {
             res.json({error: error.message});
@@ -41,14 +42,14 @@ class ClassCarrito {
     }
 
     async addCarritoPrueba(req:Request, res:Response) {
-        const cart = await api.addCarritoPrueba();
+        const cart = await apiCarrito.addCarritoPrueba();
         console.log('soy el carrito prueba')
         res.json(cart)
     }
 
     async deleteCarritoById(req:Request, res:Response){//id:number) {
         try {
-            await api.deleteCarritoById(req.body.id);
+            await apiCarrito.deleteCarritoById(req.body.id);
             
             res.json({msg: `Eliminado ${req.body.id}`});
 
@@ -59,7 +60,7 @@ class ClassCarrito {
 
     async setCarritoNuevo(id: string): Promise<string>{
 
-        return await api.setCarritoNuevo(id);
+        return await apiCarrito.setCarritoNuevo(id);
         
         
     }
@@ -68,7 +69,7 @@ class ClassCarrito {
         try {
         /* Corroborar que haya stock */
 
-        const carrito: CarritoInterface = await api.setCarrito(req.body);
+        const carrito: CarritoInterface = await apiCarrito.setCarrito(req.body);
 
         res.json(carrito);
 
@@ -84,12 +85,12 @@ class ClassCarrito {
             cierra el carrito. Cambia de abierto a false
         */
        try {
-        let carrito:CarritoInterface = await api.getCarritoById(req.body._id)
+        let carrito:CarritoInterface = await apiCarrito.getCarritoById(req.body._id)
         const userId:string = carrito.user;
         const user: UserI[] = await apiLogin.get(userId);
         
         carrito.abierto = false;
-        await api.checkout(carrito)
+        await apiCarrito.checkout(carrito)
         //enviar mail a admin
         const mail = new EmailService()
         console.log('enviado')
