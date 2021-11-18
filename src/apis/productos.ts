@@ -24,19 +24,19 @@ class prodAPI {
   }
 
   async getProductosById(id:number) {
-      return this.productos.getProductosById(id);
+      return this.productos.getProductosById(id) ;
   }
 
   async insertProducto(data:any) {
-      return this.productos.insertProducto(data);
+      return this.productos.insertProducto(data) ;
   }
 
   async deleteProducto(data:any) {
-    return this.productos.deleteProducto(data);
+    return this.productos.deleteProducto(data) ;
    }
 
    async updateProducto(id:number, data:any) {
-    return this.productos.updateProducto(id, data);
+    return this.productos.updateProducto(id, data) || [];
    }
 }
 

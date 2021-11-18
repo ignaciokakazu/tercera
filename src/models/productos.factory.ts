@@ -1,5 +1,5 @@
 import {ProductosFSDAO} from './DAO/productos/fileSystem';
-import {ProductosSQLiteDAO} from './DAO/productos/sqlite';
+// import {ProductosSQLiteDAO} from './DAO/productos/sqlite';
 import { ProductosMemoryDAO } from './DAO/productos/memory';
 import { ProductosMYSQLDAO } from './DAO/productos/mySQL';
 import {ProductosMongoDAO} from './DAO/productos/mongodb';
@@ -7,7 +7,7 @@ import {ProductosFirebaseDAO} from './DAO/productos/firebase';
 
 export enum TipoPersistencia {
     fileSystem = 'FS',
-    sqlite = 'SQLITE',
+    //sqlite = 'SQLITE',
     memory = 'MEM',
     mysql = 'MYSQL',
     mongodbLocal = 'MOL',
