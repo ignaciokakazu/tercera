@@ -45,13 +45,13 @@ const usersSchema = new Mongoose.Schema<UserI>({
 
 
 export class LoginAtlasDAO  {
-    private srv: string | any;
+    private srv: string;
     private mongoModel: any;
     
 
     constructor() {
         /* hacer según un argumento de entrada */
-        this.srv = process.env.MONGO_ATLAS_SRV;
+        this.srv = process.env.MONGO_ATLAS_SRV || '';
         Mongoose.connect(this.srv)
         this.mongoModel = Mongoose.model<UserI>('user', usersSchema);
     }

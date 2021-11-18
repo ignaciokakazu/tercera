@@ -1,5 +1,5 @@
 import myServer from './services/server';
-import config from './config/config';
+//import config from './config/config';
 import {infoLogger, peligroLogger} from './services/logger';
 import {apiLogin} from './apis/login';
 
