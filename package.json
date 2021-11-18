@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "transpile": "babel src --out-dir dist",
-    "start": "node ./dist/app.js",
+    "build": "npm install && node_modules/.bin/tsc",
+    "start": "npm run build && node dist/app.js",
     "dev": "tsc && nodemon",
     "transcuto": "npm run transpile && npm run start"
   },
