@@ -16,14 +16,14 @@ const app = express();
 /* Passport */
 const StoreOptions = {
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_ATLAS_SRV,
+    mongoUrl: process.env.MONGO_ATLAS_SRV || '',
   }),
 
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || '',
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: Number(process.env.SESSION_COOKIE_TIMEOUT_MIN) * 60 * 1000,
+    maxAge: Number(process.env.SESSION_COOKIE_TIMEOUT_MIN || 10) * 60 * 1000,
   },
 };
 app.use(cookieParser())

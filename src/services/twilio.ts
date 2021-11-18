@@ -12,8 +12,8 @@ class Twilio {
   async sendMessage(message: string, to?:string) {
     const params = {
       body: message,
-      from: process.env.TWILIO_CELLPHONE,
-      to: to || process.env.TWILIO_ADMIN,
+      from: process.env.TWILIO_CELLPHONE || '',
+      to: to || process.env.TWILIO_ADMIN || '',
     };
     const receiver = to || process.env.TWILIO_ADMIN;
     
