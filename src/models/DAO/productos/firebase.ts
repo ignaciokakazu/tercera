@@ -1,6 +1,6 @@
 import * as admin from 'firebase-admin';
 import { NewProductoInterface } from '../../productos.interfaces';
-import Config from '../../../config/config';
+import config from '../../../config/config';
 
 export class ProductosFirebaseDAO {//implements ProductBaseClass {
   db: any;
@@ -8,16 +8,16 @@ export class ProductosFirebaseDAO {//implements ProductBaseClass {
   constructor() {
 
     const params = {
-        type: Config.FIREBASE_TYPE,
-        projectId: Config.FIREBASE_PROJECT_ID,
-        privateKeyId: Config.FIREBASE_PRIVATEKEY_ID,
-        privateKey: Config.FIREBASE_PRIVATE_KEY,
-        clientEmail: Config.FIREBASE_CLIENT_EMAIL,
-        clientId: Config.FIREBASE_CLIENT_ID,
-        authUri: Config.FIREBASE_AUTH_URI,
-        tokenUri: Config.FIREBASE_TOKEN_URI,
-        authProviderX509CertUrl: Config.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
-        clientC509CertUrl: Config.FIREBASE_CLIENT_X509_CERT_URL
+        type: config.FIREBASE_TYPE,
+        projectId: config.FIREBASE_PROJECT_ID,
+        privateKeyId: config.FIREBASE_PRIVATEKEY_ID,
+        privateKey: config.FIREBASE_PRIVATE_KEY,
+        clientEmail: config.FIREBASE_CLIENT_EMAIL,
+        clientId: config.FIREBASE_CLIENT_ID,
+        authUri: config.FIREBASE_AUTH_URI,
+        tokenUri: config.FIREBASE_TOKEN_URI,
+        authProviderX509CertUrl: config.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
+        clientC509CertUrl: config.FIREBASE_CLIENT_X509_CERT_URL
       }
 
     admin.initializeApp({

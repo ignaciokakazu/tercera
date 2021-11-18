@@ -1,6 +1,6 @@
 import { string } from 'joi';
 import Mongoose from 'mongoose';
-import config from '../../../config/config';
+//import config from '../../../config/config';
 import {UserI, NewUserI} from '../../login.interfaces';
 
 /*schemas para mongoose*/
@@ -38,13 +38,13 @@ const usersSchema = new Mongoose.Schema<UserI>({
 
 
 export class LoginFacebook  {
-    private srv: string;
+    private srv: string | any;
     private mongoModel: any;
     
 
     constructor() {
         /* hacer según un argumento de entrada */
-        this.srv = config.MONGO_ATLAS_SRV;
+        this.srv = process.env.MONGO_ATLAS_SRV;
         Mongoose.connect(this.srv)
         this.mongoModel = Mongoose.model<UserI>('user', usersSchema);
         

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import {CarritoInterface, NewCarritoInterface} from '../../carrito.interfaces';
-import Config from '../../../config/config';
+//import config from '../../../config/config';
 import Moment from 'moment';
 import { ProductoInterface } from '../../productos.interfaces';
 import {peligroLogger} from '../../../services/logger';
@@ -29,9 +29,9 @@ export class CarritoMongoDAO {//implements ProductBaseClass {
 
   constructor(local: boolean = false) {
     if (local)
-      this.srv = `mongodb://localhost:27017/${Config.MONGO_LOCAL_DBNAME}`;
+      this.srv = `mongodb://localhost:27017/${process.env.MONGO_LOCAL_DBNAME}`;
     else
-      this.srv = `mongodb+srv://${Config.MONGO_ATLAS_USER}:${Config.MONGO_ATLAS_PASSWORD}@${Config.MONGO_ATLAS_CLUSTER}/${Config.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`;
+      this.srv = `mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`;
     mongoose.connect(this.srv);
     this.carrito = mongoose.model<CarritoInterface>('carrito', carritoSchema);
   }
