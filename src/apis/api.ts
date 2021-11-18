@@ -14,11 +14,10 @@ const tipo = TipoPersistencia.mongodbAtlas;
 
 class capaAPIProductos { //incluye productos y carrito
   private productos: any;
-  private carrito: any;
+
 
   constructor() {
     this.productos = ProductosFactoryDAO.get(tipo);
-    this.carrito = CarritoFactoryDAO.get(tipo);
   }
 
   //PRODUCTOS
@@ -44,38 +43,6 @@ class capaAPIProductos { //incluye productos y carrito
     return this.productos.updateProducto(id, data);
    }
    
-   //carrito
-
-   async getCarritoAll() {
-       return this.carrito.getCarritoAll();
-   }
-   
-   async getCarritoById(id:string) {
-    return this.carrito.getCarritoById(id);
-   }
-
-   async addCarritoPrueba() {
-     return this.carrito.addCarritoPrueba();
-   }
-
-
-   async setCarritoNuevo(id:string) {
-    return this.carrito.setCarritoNuevo(id);
-  }
-
-  async setCarrito(data:CarritoInterface) { 
-    //en realidad acá le debería pasar el producto. En el DAO debería hacer la lógica de Mongo, para que sea útil para otras BD
-    return this.carrito.setCarrito(data);
-  }
-
-   async deleteCarritoById(id:number) {
-    return this.carrito.deleteCarritoById(id);
-   }
-
-   async checkout(data:CarritoInterface) {
-     return this.carrito.checkout(data);
-   }
-
 }
 
 class capaAPICarrito { //incluye productos y carrito
