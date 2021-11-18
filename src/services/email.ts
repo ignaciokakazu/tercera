@@ -1,4 +1,4 @@
-import config from '../config/config';
+//import config from '../config/config';
 import nodemailer from 'nodemailer';
 
 export default class EmailService {
@@ -6,12 +6,12 @@ export default class EmailService {
   private transporter:any;
 
   constructor() {
-      const name:string = config.GMAIL_NAME;
-      const address:string = config.GMAIL_USERNAME;
-      const host:string = config.GMAIL_HOST;
-      const port:number = Number(config.GMAIL_PORT);
-      const username:string = config.GMAIL_USERNAME;
-      const password:string = config.GMAIL_PASS;
+      const name:string = process.env.GMAIL_NAME;
+      const address:string = process.env.GMAIL_USERNAME;
+      const host:string = process.env.GMAIL_HOST;
+      const port:number = Number(process.env.GMAIL_PORT);
+      const username:string = process.env.GMAIL_USERNAME;
+      const password:string = process.env.GMAIL_PASS;
 
       this.owner = {
         name: name,

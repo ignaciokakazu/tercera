@@ -1,4 +1,4 @@
-import config from '../config/config'
+//import config from '../config/config'
 import express from 'express';
 import MongoStore from 'connect-mongo';
 import passport from '../middleware/passportLocal';
@@ -16,14 +16,14 @@ const app = express();
 /* Passport */
 const StoreOptions = {
   store: MongoStore.create({
-    mongoUrl: config.MONGO_ATLAS_SRV,
+    mongoUrl: process.env.MONGO_ATLAS_SRV,
   }),
 
-  secret: config.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: Number(config.SESSION_COOKIE_TIMEOUT_MIN) * 60 * 1000,
+    maxAge: Number(process.env.SESSION_COOKIE_TIMEOUT_MIN) * 60 * 1000,
   },
 };
 app.use(cookieParser())

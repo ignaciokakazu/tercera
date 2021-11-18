@@ -8,16 +8,16 @@ export class ProductosFirebaseDAO {//implements ProductBaseClass {
   constructor() {
 
     const params = {
-        type: config.FIREBASE_TYPE,
-        projectId: config.FIREBASE_PROJECT_ID,
-        privateKeyId: config.FIREBASE_PRIVATEKEY_ID,
-        privateKey: config.FIREBASE_PRIVATE_KEY,
-        clientEmail: config.FIREBASE_CLIENT_EMAIL,
-        clientId: config.FIREBASE_CLIENT_ID,
-        authUri: config.FIREBASE_AUTH_URI,
-        tokenUri: config.FIREBASE_TOKEN_URI,
-        authProviderX509CertUrl: config.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
-        clientC509CertUrl: config.FIREBASE_CLIENT_X509_CERT_URL
+        type: process.env.FIREBASE_TYPE,
+        projectId: process.env.FIREBASE_PROJECT_ID,
+        privateKeyId: process.env.FIREBASE_PRIVATEKEY_ID,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        clientId: process.env.FIREBASE_CLIENT_ID,
+        authUri: process.env.FIREBASE_AUTH_URI,
+        tokenUri: process.env.FIREBASE_TOKEN_URI,
+        authProviderX509CertUrl: process.env.FIREBASE_AUTH_PROVIDER_X509_CERT_URL,
+        clientC509CertUrl: process.env.FIREBASE_CLIENT_X509_CERT_URL
       }
 
     admin.initializeApp({
