@@ -53,7 +53,7 @@ function showProducts(productosObj) {
 
 
 function fetchProducts(page="") {
-	const url = 'http://localhost:8080/api/productos/listar';
+	const url = 'https://tercera-pre.herokuapp.com/api/productos/listar';
 
 	fetch(url)
     .then(response => response.json())

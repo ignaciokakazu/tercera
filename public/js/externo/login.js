@@ -9,7 +9,7 @@
 //     }
     
 //     console.log(objeto);
-//     postDataJSON('http://localhost:8080/api/productos/login', objeto)
+//     postDataJSON('https://tercera-pre.herokuapp.com/api/productos/login', objeto)
 //     .then(data => {
 //       /*const msg = document.getElementById('msg');
 //       msg.innerHTML = data.msg;*/
@@ -61,7 +61,7 @@ const login = () => {
   //     body: JSON.stringify( params )  
   // };
   //console.log(options)
-  fetch( 'http://localhost:8080/api/login/auth', {
+  fetch( 'https://tercera-pre.herokuapp.com/api/login/auth', {
     method: 'POST',
     body: JSON.stringify(params),
     headers: {

@@ -1,5 +1,5 @@
 const agregarCarrito = (id) => {
-    const url = `http://localhost:8080/api/carrito/agregar/` 
+    const url = `https://tercera-pre.herokuapp.com/api/carrito/agregar/` 
     postDataParams(url, id);
     const contador = document.getElementById(`contador-${id}`);
     const stock = document.getElementById(`stock-${id}`);
@@ -15,7 +15,7 @@ const agregarCarrito = (id) => {
 }
 
 const borrarCarrito = async (id_producto) => {
-  const url = `http://localhost:8080/api/carrito/borrar/` 
+  const url = `https://tercera-pre.herokuapp.com/api/carrito/borrar/` 
   await deleteDataParams(url, id_producto);
   const contador = document.getElementById(`contador-${id_producto}`);
 
@@ -36,7 +36,7 @@ async function postDataParams(url, data) {
 }
   
 const fetchCarrito = () => {
-    const url = 'http://localhost:8080/api/carrito/listar';
+    const url = 'https://tercera-pre.herokuapp.com/api/carrito/listar';
 
     fetch(url)
         .then(response => response.json())
@@ -77,7 +77,7 @@ async function deleteDataParams(url, data) {
 }
 
 function deleteAll() {
-  fetch('http://localhost:8080/api/carrito/borrar/todo', {
+  fetch('https://tercera-pre.herokuapp.com/api/carrito/borrar/todo', {
     method: 'DELETE',
     mode: 'cors'
   })
@@ -99,7 +99,7 @@ function deleteAll() {
 }
 
 const borrarPorId = async (id) => {
-  const url = `http://localhost:8080/api/carrito/borrar/` 
+  const url = `https://tercera-pre.herokuapp.com/api/carrito/borrar/` 
   await deleteDataParams(url, id);
   const carritoId = document.getElementById(`carrito-${id}`);
   carritoId.remove();

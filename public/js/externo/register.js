@@ -33,7 +33,7 @@ const register = () => {
   //     body: JSON.stringify( params )  
   // };
   //console.log(options)
-  fetch( 'http://localhost:8080/api/login/register', {
+  fetch( 'https://tercera-pre.herokuapp.com/api/login/register', {
     method: 'POST',
     body: JSON.stringify(params),
     headers: {
