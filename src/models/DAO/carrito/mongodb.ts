@@ -22,7 +22,7 @@ const carritoSchema = new mongoose.Schema<CarritoInterface>({
     abierto:Boolean
 });
 
- mongoose.connect(process.env.MONGO_ATLAS_SRV) //`mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`);
+ mongoose.connect(process.env.MONGO_ATLAS_SRV || '') //`mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`);
 
  export const mongui = mongoose.connection;
 
