@@ -22,18 +22,19 @@ const carritoSchema = new mongoose.Schema<CarritoInterface>({
     abierto:Boolean
 });
 
+export const mongui = mongoose.createConnection(`mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`);
 
 export class CarritoMongoDAO {//implements ProductBaseClass {
-  private srv: string;
+  // private srv: string;
   private carrito;
 
   constructor(local: boolean = false) {
-    if (local)
-      this.srv = `mongodb://localhost:27017/${process.env.MONGO_LOCAL_DBNAME}`;
-    else
-      this.srv = `mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`;
-    mongoose.createConnection(this.srv);
-    this.carrito = mongoose.model<CarritoInterface>('carrito', carritoSchema);
+    // if (local)
+    //   this.srv = `mongodb://localhost:27017/${process.env.MONGO_LOCAL_DBNAME}`;
+    // else
+    //   this.srv = `mongodb+srv://${process.env.MONGO_ATLAS_USER}:${process.env.MONGO_ATLAS_PASSWORD}@${process.env.MONGO_ATLAS_CLUSTER}/${process.env.MONGO_ATLAS_DBNAME}?retryWrites=true&w=majority`;
+    // mongoose.connect(this.srv);
+    this.carrito = mongui.model<CarritoInterface>('carrito', carritoSchema);
   }
 
   async getCarritoAll() {

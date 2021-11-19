@@ -4,7 +4,7 @@ import Mongoose from 'mongoose';
 import {UserI, NewUserI} from '../../login.interfaces';
 import { infoLogger, peligroLogger } from '../../../services/logger';
 import bcrypt from 'bcrypt';
-
+import {mongui} from '../carrito/mongodb';
 
 /*schemas para mongoose*/
 const usersSchema = new Mongoose.Schema<UserI>({
@@ -45,15 +45,15 @@ const usersSchema = new Mongoose.Schema<UserI>({
 
 
 export class LoginAtlasDAO  {
-    private srv: string;
+    // private srv: string;
     private mongoModel: any;
     
 
     constructor() {
         /* hacer según un argumento de entrada */
-        this.srv = process.env.MONGO_ATLAS_SRV || '';
-        Mongoose.createConnection(this.srv)
-        this.mongoModel = Mongoose.model<UserI>('user', usersSchema);
+        // this.srv = process.env.MONGO_ATLAS_SRV || '';
+        // Mongoose.createConnection(this.srv)
+        this.mongoModel = mongui.model<UserI>('user', usersSchema);
     }
 
     async getByEmail(email:string): Promise<UserI|null> {
