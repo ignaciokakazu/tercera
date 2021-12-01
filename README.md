@@ -1,2 +1,2 @@
 # tercera
-# Example for Deploying in Heroku. For Academic purpose
+Example for Deploying in Heroku. For Academic purpose
